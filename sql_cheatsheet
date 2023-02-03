@@ -1,9 +1,54 @@
 SQL COMMANDS:
 
-CREATE DATABASE
 
-CREATE TABLE
+CREATE DATABASE <db-name> = creating a database
 
-SELECT
+DROP DATABASE <db-name> = deleting a database
+
+CREATE TABLE table_name (
+        row_name + data_type + constraints_if_any
+) ;
+
+Important constraints = NOT NULL, PRIMARY KEY, UNIQUE, FOREIGN KEY
+
+DROP TABLE <table_name> = delete a table
+
+SELECT * FROM <table_name> = view all columns of a table
+
+
+SELECT <column1>, <column2> FROM <table_name> -> view column(s) of a table
+
+SELECT * FROM <table_name> ORDER BY <column1>, <column2> ASC / DESC -> view a table with ascending or descending order of one or a number of columns
+
+SELECT DISTINCT <column> FROM <table> -> receive an output with duplicate records only shown once for each
+
+WHERE -> It's used to filter data based on custom conditions. Also 'AND' is used for combining 2 or more conditions. ex:
+SELECT <column> FROM <table_name> WHERE <condition, ex: gender = 'Male' AND country = 'Iran'> ;
+
+SELECT * FROM <table_name> LIMIT <n> -> "LIMIT" is used to limit the number of records in the output.
+
+SELECT * FROM <table_name> OFFSET <n> LIMIT <m> -> 'OFFSET' is used to declare the starting point (default is 0). For example when we want 11th to 25th record from out table to be shown (skip the first 10 and give me the next 15):
+
+SELECT * FROM <table_name> OFFSET 10 LIMIT 15 ;
+
+another way to declare this:
+SELECT * FROM <table_name> OFFSET 10 FIRST 15 ROW ONLY ;
+
+
+SELECT * FROM person WHERE country IN ('Iran', 'China', 'USA') ;
+this can be used when a row record should be a part of a defined set
+
+
+Also when we need our records to be in a RANGE, we'd go like this:
+SELECT * FROM person WHERE date_of_birth BETWEEN DATE '2000-01-01' AND '2016-01-01'
+Notice how we put date_of_birth inside cotations and declared that it's a DATE data type.
 
 INSERT
+
+
+
+POSTGRESQL COMMANDS:
+
+psql <db_name> -> open psql CLI to work on a defined database
+
+\i <file_path> -> run commands from a file
