@@ -43,7 +43,36 @@ Also when we need our records to be in a RANGE, we'd go like this:
 SELECT * FROM person WHERE date_of_birth BETWEEN DATE '2000-01-01' AND '2016-01-01'
 Notice how we put date_of_birth inside cotations and declared that it's a DATE data type.
 
-INSERT
+LIKE: like is used to match values against a pattern using wild cards. for example for finding all records that 'x' exists in the value:
+
+SELECT * FROM <table> WHERE <column> LIKE '%x%' ;
+
+also, the underscore _  displays a variable character. when we want to receive all records that has 3 chars before 'x':
+
+SELECT * FROM <table> WHERE <column> LIKE '%___x%'
+
+in order to let SQL forget about case-sensitivity in our input, we can use 'ILIKE' keyword :
+SELECT * FROM <table> WHERE <column> ILIKE '%___X%'
+
+to insert a record to a table:
+INSERT INTO <table_name> (column1, column2, ...) VALUES (value1, value2, ...);
+
+
+
+GROUP BY:
+allows us to group data based on a column.
+fof example, let's say we want to know how many people are there in each coutnry?
+SELECT <country> COUNT(*) FROM <table> GROUP BY <country>
+
+GROUP BY HAVING:
+having an extra filtering after the aggregation.
+i.e. in the example above, let's say we want to know how many people are there in each coutnry, but ONLY for countries with more then 5 people in our table:
+
+SELECT <country> COUNT(*) FROM <table> GROUP BY <country> HAVING COUNT(*) > 5
+
+
+
+
 
 
 
