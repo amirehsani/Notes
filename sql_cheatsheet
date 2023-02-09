@@ -143,3 +143,40 @@ SELECT COALESCE(column1, column2) FROM <table>;
 
 to replace a null variable with something else:
 SELECT COALESCE(column1, 'value') FROM <table>; 
+
+PRIMARY KEYS:
+In PGSQL, primary keys are identified with 'BIGSERIAL' data type.
+to define a PK for a pre-built table:
+ALTER TABLE <table> ADD PRIMARY KEY(<column>);
+
+
+CONSTRAINTS:
+The following constraints are commonly used in SQL:
+
+NOT NULL - Ensures that a column cannot have a NULL value
+UNIQUE - Ensures that all values in a column are different
+PRIMARY KEY - A combination of a NOT NULL and UNIQUE. Uniquely identifies each row in a table
+FOREIGN KEY - Prevents actions that would destroy links between tables
+CHECK - Ensures that the values in a column satisfies a specific condition
+DEFAULT - Sets a default value for a column if no value is specified
+CREATE INDEX - Used to create and retrieve data from the database very quickly
+
+
+DELEETING RECORDS:
+In order to find and delete a record, just go as all the queries we've discussed,
+but use DELETE instead of SELECT. The simplest one:
+DELETE * FROM <table>
+
+
+UPDATING COMMAND:
+UPDATE command lets us to update data based on our WHERE clause. It can be done using UPDATE
+and SET commands. For example:
+
+UPDATE <table> SET <column> = <value> WHERE <condition>;
+
+
+ON CONFLICT DO NOTHING:
+There might some times that we insert a new record that has a conflict with (an)other record(s). In
+such senarios, in order to ask SQL to ignore he conflict and do as what we said, run your command like this:
+
+INSERT INTO <table> (columns) VALUES(values) ON CONFLICT(the_column_conflict_might_happen) DO NOTHING;
