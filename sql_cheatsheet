@@ -133,3 +133,13 @@ SELECT EXTRACT(YEAR FROM NOW()) ;
 
 to calculate age form birth date (calcuate differnece between 2 date-times): use AGE keyword:
 SELECT AGE(NOW(),date_or_birth) AS age FROM person;
+
+
+Coalesce function in SQL takes a list of arguments and returns
+the first element of the list that is not null.
+
+to receive them :
+SELECT COALESCE(column1, column2) FROM <table>;
+
+to replace a null variable with something else:
+SELECT COALESCE(column1, 'value') FROM <table>; 
