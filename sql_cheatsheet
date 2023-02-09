@@ -1,5 +1,10 @@
-SQL COMMANDS:
+THIS IS A PERSONAL CHEATSHEET FOR SQL, MOSTLY FOCUSED ON SQL COMMANDS AND POSTGRESQL DMBS CONFIGURATION.
+IT MIGHT NOT BE THE BEST FOR YOU BECAUSE THIS IS CUSTOM-WRITTEN BY MYSELF, FOR MYSELF. BUT I HOPE IT COMES HANDY
+FOR ANYONE READING THIS. I WAS STUDYING THIS CRASH COURSE ON POSTGRESQL FROM feeCodeCamp.org WHILE MAKING THIS SHEET:
+https://www.youtube.com/watch?v=qw--VYLpxG4
 
+
+SQL COMMANDS:
 
 CREATE DATABASE <db-name> = creating a database
 
@@ -66,7 +71,8 @@ SELECT <country> COUNT(*) FROM <table> GROUP BY <country>
 
 GROUP BY HAVING:
 having an extra filtering after the aggregation.
-i.e. in the example above, let's say we want to know how many people are there in each coutnry, but ONLY for countries with more then 5 people in our table:
+i.e. in the example above, let's say we want to know how many people are there in each coutnry,
+but ONLY for countries with more then 5 people in our table:
 
 SELECT <country> COUNT(*) FROM <table> GROUP BY <country> HAVING COUNT(*) > 5
 
@@ -81,3 +87,49 @@ POSTGRESQL COMMANDS:
 psql <db_name> -> open psql CLI to work on a defined database
 
 \i <file_path> -> run commands from a file
+
+AGGREGATE FUNCTION:
+these are function that run a calculation on a set of values and return a single value in result
+
+MAX/MIN/AVG(column): find the max/min/average value among all records in a column:
+SELECT MAX/MIN/AVG(price) FROM car;
+
+ROUND(value, DecimalPoints): round a value to the closest string, decimal points are optioanl:
+SELECT ROUND(AVG(price, 2)) FROM car;
+
+SUM(value): calculate sum of all records in a set:
+SELECT SUM(price) FROM car;
+SELECT make, SUM(price) FROM car GROUP BY make;
+
+ARITHMETICS:
+SQL allows you to do mathematical arithmetics using operators suchas + - * / ^ ! mod
+
+I.E: return actual price of each car in a table with another price with 10 percent discount:
+SELECT price, ROUND(price - (price / 10), 1) FROM car 
+
+ALIAS:
+by default, when you don't specify a column name for a calcualted value, PG will use the actual
+FUNCTION NAME as the column name. We can use ALIAS to provide a custom name for our column. the keyword used here is AS :
+SELECT price, ROUND(price - (price / 10), 1) AS discount_price FROM car;
+
+COALESCE:
+while working with nulls in PG, COALESCE is useful. It can actually assign a defined value to a null.
+let's say we want to tell PG to assign email of "Email not found" for any person record without an email: 
+SELECT COALESCE(email, 'Email not found ') FROM PERSON;
+
+
+TIMEZONE:
+NOW() funcion tells us the current time and date.
+
+for returning time only: SELECT NOW()::TIME;
+for returning date only: SELECT NOW()::DATE;
+
+to convert a described time to SQL formatted time, just use INTERVAL keyword.
+ex: returning date 10 months before now:
+SELECT NOW()::DATE - INTERVAL '10 MONTHS'
+
+to extract a field from a date-time : use EXTRACT keyword
+SELECT EXTRACT(YEAR FROM NOW()) ;
+
+to calculate age form birth date (calcuate differnece between 2 date-times): use AGE keyword:
+SELECT AGE(NOW(),date_or_birth) AS age FROM person;
