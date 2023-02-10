@@ -218,3 +218,13 @@ SELECT * FROM person LEFT JOIN car ON person.car_id=car.id;
 EXTENSIONS:
 extensions are functions that add functionality to Postgres. To list all extensions:
 SELECT * from pg_availableexensions
+
+SET:
+The SET command is used with UPDATE to specify which columns and values that should be updated in a table.
+The following SQL updates the first customer (CustomerID = 1) with a new ContactName and a new City:
+
+Example
+UPDATE Customers
+SET ContactName = 'Alfred Schmidt', City= 'Frankfurt'
+WHERE CustomerID = 1;
+
