@@ -180,3 +180,41 @@ There might some times that we insert a new record that has a conflict with (an)
 such senarios, in order to ask SQL to ignore he conflict and do as what we said, run your command like this:
 
 INSERT INTO <table> (columns) VALUES(values) ON CONFLICT(the_column_conflict_might_happen) DO NOTHING;
+
+NULLIF:
+The NULLIF() function returns NULL if two expressions are equal, otherwise it returns the first expression. example:
+
+SELECT NULLIF (1, 1); -- return NULL
+SELECT NULLIF ('A', 'B'); -- return A
+
+RELATIONS:
+adding relations in PG is done by using REFERNECE keyword.
+to add a relation (FK) to another table, add this column while creating your table:
+<column_name> BIGINT REFERENCE <destination_table> (<destination_column>);
+fro example:
+car_id BIGINT REFERENCE car (id), UNIQUE(car_id)
+note: car_id is uniqued because it's a OneToOne Relation.
+
+GENERATING CSV WITH POSTGRESQL:
+
+copy (query) TO 'path' DELIMITTER ',' CSV HEADER;
+
+Joins :
+Joins are used to combine tables
+Inner join: what is common between 2 tables
+
+example:
+SELECT * FROM person JOIN car ON person.car_id=car.id;
+
+# joining person table with car table
+# on takes a column which can be used to combine (FK)
+
+LEFT JOIN:
+left join is used to combine 2 tables A and B, when the result contains left table (A) + records from right table (B) that has relationship with A. for example:
+
+SELECT * FROM person LEFT JOIN car ON person.car_id=car.id;
+
+
+EXTENSIONS:
+extensions are functions that add functionality to Postgres. To list all extensions:
+SELECT * from pg_availableexensions
