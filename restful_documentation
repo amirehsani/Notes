@@ -28,4 +28,4 @@ docs = https://drf-spectacular.readthedocs.io/
 
 
 What is drf-yasg:
-drf-yasg (Yet Another Swagger Generator) is a Swagger generation tool implemented without using the schema generation provided by DRF. 
+drf-yasg (Yet Another Swagger Generator) is a Swagger generation tool implemented without using the schema generation provided by DRF. drf-yasg DOES NOT support OpenAPI 3 and ends up its support prodiving to OpenAPI 2
