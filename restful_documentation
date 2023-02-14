@@ -1,0 +1,31 @@
+useful link to find this subject wiser and more clear, specially for usage in Django
+https://rohitkrgupta.medium.com/swagger-with-django-made-easy-a-drf-spectacular-explainer-20b18bb4c33c
+
+
+
+What is OpenAPI:
+Open API Specification (or OAS) is a language-dependent standard that visualizes/describes RESTful API behavior. It usually creates a file containing API documentation so those who use the API won't have to analyse the whole source code and can rely on the documentation.
+
+As mentioned, OpenAPI is a global format to gather some information about the API service, including:
+- what is each request receiving and how it should be sent
+- what is each response sending and how it sends data to clients
+- how the authentication/authorization process works in a service
+- contact info, terms of use, licenses etc.
+
+
+What is Swagger:
+Swagger is basically an IDL (Interface Description Language) that is used as a tool to describe API services clearly to clients for better use of the API. Swagger documentation is written in files formatted with YAML or JSON. There are various third-party packages to create readable/useful Swagger documentation for RESTful APIssuch as Swagger UI. For Django, we have options like django-rest-swagger, drf-spectacular, drf-yasg etc.
+
+
+What is Swagger UI:
+Swagger UI is a tool for generating RESTful API documentation based on Open API 3 schema.
+
+
+What is drf-spectacular:
+drf-spectacular is a DRF library that generates Open API 3 schema API documentation for Django-Rest Framework.
+source code and guide = https://github.com/tfranzel/drf-spectacular
+docs = https://drf-spectacular.readthedocs.io/
+
+
+What is drf-yasg:
+drf-yasg (Yet Another Swagger Generator) is a Swagger generation tool implemented without using the schema generation provided by DRF. 
