@@ -17,7 +17,7 @@ view <filename> = to open a file in read-only mode
 --------------------
 commands:
 :w = save and continue editing
-:wq = save and quit
+:wq OR ZZ = save and quit
 
 yy = copy a line of code
 gg = go to the first line of the code
