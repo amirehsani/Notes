@@ -1,0 +1,43 @@
+vi instructions / hotkeys / modes
+
+--------------------
+vi has 3 modes: command, inesrt and last line(escape).
+
+command: to enter command mode: press 'Esc'. It'll automatically open in command mode for first run. this mode is mostly used to move through / do edits on a file.
+
+insert: to enter insert mode: press 'i'
+
+escape: ues ':' in command mode to enter esacpe mode. when done so, vi would wait for your commands to perform tasks. 
+
+--------------------
+vi <filename> = to open a file
+vi -R <filename> = to open a file in read-only mode
+view <filename> = to open a file in read-only mode
+
+--------------------
+commands:
+:w = save and continue editing
+:wq = save and quit
+
+yy = copy a line of code
+gg = go to the first line of the code
+b = go to beginning of the word
+dd = delete a selected line of code
+Xdd = delete X numbero f selected lines of code
+h, j, k, l = move left, down, up, right for one character
+
+0 or | = Positions cursor at beginning of line.
+$ = Positions cursor at end of line.
+W = Positions cursor to the next word.
+B = Positions cursor to previous word.
+
+CTRL + d = Move forward 1/2 screen.
+CTRL + f = Move forward one full screen.
+CTRL + u = Move backward 1/2 screen.
+CTRL + b = Move backward one full screen.
+CTRL + e = Moves screen up one line.
+CTRL + y = Moves screen down one line.
+CTRL + u = Moves screen up 1/2 page.
+CTRL + d = Moves screen down 1/2 page.
+CTRL + b = Moves screen up one page.
+CTRL + f = Moves screen down one page.
